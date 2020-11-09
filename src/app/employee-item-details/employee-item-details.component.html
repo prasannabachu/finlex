@@ -15,7 +15,7 @@
     </div>
 </div> -->
 
-<h1 mat-dialog-title class="mb-0">Employee Details</h1>
+<h1 mat-dialog-title class="mb-0">{{heading}} Employee Details</h1>
 <hr class="m-0">
 <div mat-dialog-content class="py-5">
     <form [formGroup]="productForm" (ngSubmit)="createUpdateEmployee()" novalidate>

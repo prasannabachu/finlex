@@ -10,17 +10,20 @@ import { EmployeeDetails } from '../employee-details/employee.model';
   styleUrls: ['./employee-item-details.component.css']
 })
 export class EmployeeItemDetailsComponent implements OnInit {
-  @Input() input: any;
+  // @Input() input: any;
   productForm: FormGroup;
-  DialogData: any;
+  heading: string;
+  // DialogData: any;
   constructor(public fb: FormBuilder, public employeeService: EmployeeService,
               @Inject(MAT_DIALOG_DATA) public data: EmployeeDetails | any) { }
 
 
   ngOnInit() {
     this.employeeFormBuild();
+    this.heading = 'Create';
     if (this.data !== '') {
       this.bindfomvalues();
+      this.heading = 'Update';
     }
   }
 
