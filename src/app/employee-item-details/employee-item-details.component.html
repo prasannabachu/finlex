@@ -1,0 +1,56 @@
+<!-- <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">            
+            <div class="modal-header border-bottom">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>            
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer border-top">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="submitForm()">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<h1 mat-dialog-title class="mb-0">Employee Details</h1>
+<hr class="m-0">
+<div mat-dialog-content class="py-5">
+    <form [formGroup]="productForm" (ngSubmit)="createUpdateEmployee()" novalidate>
+        <div class="form-group row">
+            <label for="empname" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
+            <div class="col-sm-10">
+                <!-- <input type="text" class="form-control form-control-sm" id="empname" placeholder="Name"> -->
+                <input type="text" class="form-control form-control-sm" id="empname" formControlName="employee_name" maxlength="20">
+                <!-- <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger"> -->
+                    <div  class="alert alert-danger" *ngIf="f.employee_name.errors?.pattern">Enter only alphabets.</div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="empsalary" class="col-sm-2 col-form-label col-form-label-sm">Salary</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" id="empsalary"  formControlName="employee_salary" >
+                <!-- <div *ngIf="f.salary.touched && f.salary.invalid" class="alert alert-danger"> -->
+                    <div  class="alert alert-danger" *ngIf="f.employee_salary.errors?.pattern">Enter only number.</div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="empage" class="col-sm-2 col-form-label col-form-label-sm">Age</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control form-control-sm" id="empage" formControlName="employee_age">
+                <!-- <div *ngIf="f.age.touched && f.age.invalid" class="alert alert-danger"> -->
+                    <div class="alert alert-danger" *ngIf="f.employee_age.errors?.pattern">Enter only number.</div>
+                <!-- </div> -->
+            </div>
+        </div>
+    </form>
+</div>
+<hr class="m-0">
+<div mat-dialog-actions class="text-right d-block">
+    <button type="submit" class="btn btn-primary btn-sm mr-2" (click)="createUpdateEmployee()">Save</button>
+    <button type="button" class="btn btn-secondary btn-sm" mat-dialog-close>Close</button>
+</div>

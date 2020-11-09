@@ -1,0 +1,37 @@
+<section class="masthead bg-primary text-white text-center">
+    <div class="container d-flex flex-column">
+      <h1 >Employee Deatils <button class="btn btn-light btn-sm float-right mt-1" (click)="openDialog('')">ADD</button></h1><div class="table-responsive">
+        <table class="table table-bordered table-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Salary</th>
+              <th>Age</th>
+              <th style="width:100px;">Action </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of employeeData ; let i=index">
+              <td>{{data.id}}</td>
+              <td>{{data.employee_name}}</td>
+              <td>{{data.employee_salary}}</td>
+              <td>{{data.employee_age}}</td>
+              <td>
+                <button class="btn btn-sm" (click)="deleteEmployee(i)"> <i class="far fa-trash-alt"></i></button>
+                <button class="btn btn-sm" (click)="getSelectEmployeeDetails(i)"> <i class="far fa-edit"></i> </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- <div>
+      <app-employee-item-details></app-employee-item-details>
+    </div> -->
+<!--Edit Employee details -->
+
+  </section>
+  <!-- <div *ngIf="showmodal">
+    <app-employee-item-details [input]="selectedEmployee"></app-employee-item-details>
+  </div> -->
